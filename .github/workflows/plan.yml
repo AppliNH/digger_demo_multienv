@@ -2,8 +2,8 @@ name: CI
 
 on:
   pull_request:
-    branches: [ "main" ]
-    types: [ closed, opened, synchronize, reopened ]
+    branches: ["main"]
+    types: [closed, opened, synchronize, reopened]
   issue_comment:
     types: [created]
     if: contains(github.event.comment.body, 'digger')
@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: digger run
