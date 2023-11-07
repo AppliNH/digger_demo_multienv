@@ -11,10 +11,6 @@ projects:
   dir: environments/staging/myproject-bis
   workflow: my_custom_workflow
   include_patterns: ["../../../modules/**"]
-- name: prod
-  dir: prod
-  workflow: my_custom_workflow
-  include_patterns: ["../modules/**"]
 workflows:
   my_custom_workflow:
     workflow_configuration:
