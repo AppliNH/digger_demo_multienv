@@ -18,7 +18,6 @@ jobs:
         with:
           ref: refs/pull/${{ github.event.issue.number }}/head
       - name: Rename
-        ignore_errors: true
         run: |
           mv digger-staging.yml digger.yml
       - name: digger run
