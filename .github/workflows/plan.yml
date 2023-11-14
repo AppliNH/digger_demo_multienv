@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: refs/pull/${{ github.event.issue.number }}/head
+          ref: refs/pull/${{ github.event.issue.number || github.event.pull_request.number }}/head
       - name: Rename
         run: |
           mv digger-staging.yml digger.yml
@@ -36,6 +36,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: refs/pull/${{ github.event.issue.number || github.event.pull_request.number }}/head
       - name: Rename
         run: |
           mv digger-production.yml digger.yml
