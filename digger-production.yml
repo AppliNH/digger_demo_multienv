@@ -1,5 +1,5 @@
 projects:
-- name: prod
+- name: production-prod
   dir: prod
   workflow: my_custom_workflow
   include_patterns: ["../modules/**"]

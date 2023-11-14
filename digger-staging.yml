@@ -3,10 +3,10 @@ projects:
   dir: dev
   workflow: my_custom_workflow
   include_patterns: ["../modules/s3/**"]
-- name: myproject
+- name: staging-myproject
   dir: environments/staging/myproject
   workflow: my_custom_workflow
-- name: myproject-bis
+- name: staging-myproject-bis
   dir: environments/staging/myproject-bis
   workflow: my_custom_workflow
 workflows:
