@@ -2,15 +2,13 @@ projects:
 - name: dev
   dir: dev
   workflow: my_custom_workflow
-  include_patterns: ["../modules/**"]
+  include_patterns: ["../modules/s3/**"]
 - name: myproject
   dir: environments/staging/myproject
   workflow: my_custom_workflow
-  include_patterns: ["../../../modules/**"]
 - name: myproject-bis
   dir: environments/staging/myproject-bis
   workflow: my_custom_workflow
-  include_patterns: ["../../../modules/**"]
 workflows:
   my_custom_workflow:
     workflow_configuration:
