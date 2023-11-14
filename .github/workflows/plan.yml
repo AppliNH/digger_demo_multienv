@@ -11,8 +11,8 @@ on:
 
 jobs:
   staging:
+    if: (contains(github.event.comment.body, 'digger') && contains(github.event.comment.body, 'staging')) || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
         with:
@@ -33,6 +33,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   production:
+    if: (contains(github.event.comment.body, 'digger') && contains(github.event.comment.body, 'production')) || github.event_name == 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
