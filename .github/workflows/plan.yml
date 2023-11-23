@@ -14,20 +14,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: refs/pull/${{ github.event.issue.number || github.event.pull_request.number }}/head
-      - name: Rename
-        run: |
-          mv digger-staging.yml digger.yml
       - name: digger run
-        uses: diggerhq/digger@v0.2.4
+        uses: diggerhq/digger@v0.2.5
         with:
           setup-aws: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
           setup-terraform: true
+          digger-filename: digger-staging.yml
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -35,20 +30,15 @@ jobs:
   production:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-        with:
-          ref: refs/pull/${{ github.event.issue.number || github.event.pull_request.number }}/head
-      - name: Rename
-        run: |
-          mv digger-production.yml digger.yml
       - name: digger run
-        uses: diggerhq/digger@v0.2.4
+        uses: diggerhq/digger@v0.2.5
         with:
           setup-aws: true
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
           setup-terraform: true
+          digger-filename: digger-production.yml
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
