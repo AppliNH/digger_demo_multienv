@@ -1,7 +1,4 @@
 projects:
-- name: dev
-  dir: dev
-  workflow: my_custom_workflow
 - name: prod
   dir: prod
   workflow: my_custom_workflow
